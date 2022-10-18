@@ -1,0 +1,35 @@
+<nav class="colorlib-nav" role="navigation">
+      <div class="top-menu">
+            <div class="container-fluid">
+                  <div class="row">
+                        <div class="col-xs-2">
+                              <div id="colorlib-logo"><a href="/tour/">Tour</a></div>
+                              {% if request.user.is_authenticated %}
+                                    
+                              <div id="colorlib-logo"><a href="/profile/">Profile</a></div>
+                              {% else %}
+                              <div id="colorlib-logo"><a href="/profile/login/">Login</a></div>
+                              <div id="colorlib-logo"><a href="/profile/signup/">Sign Up</a></div>
+                              
+                              {% endif %}
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                              <ul>
+                                 
+                                    
+                                    <li class="active"><a href="/">Home</a></li>
+                                    <li class="has-dropdown">
+                                          <a href="/tour/">Tours</a>
+                                          
+                                    </li>
+                                    <li ><a href="/hotel/">Hotels</a></li>
+                                    <li><a href="/service/">Services</a></li>
+                                    <li><a href="/blog/">Blog</a></li>
+                                    <li><a href="/about/">About</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</nav>

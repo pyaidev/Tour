@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block content %}
+
+<aside id="colorlib-hero">
+  <div class="flexslider">
+    <ul class="slides">
+      <li style="background-image:url({{hotel.image.url}})">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+              <div class="slider-text-inner text-center">
+                <h1>{{hotel.name}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
+<div class="colorlib-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="wrap-division">
+
+            {% for i in rooms %}
+            <div class="col-md-6 col-sm-6 animate-box">
+              <div class="hotel-entry">
+                <a href="{% url 'hotel:hotel-room-detail' hotel.id i.id  %}" class="hotel-img"
+                  style="background-image:url({{i.image.url}})">
+                  <p class="price"><span>${{i.price}}</span><small> /night</small></p>
+                </a>
+                <div class="desc">
+                  <p class="star">{{i.cat}}</p>
+                  <h3><a href="hotel-room.html">{{i.title}}</a></h3>
+                  <span class="place">{{hotel.tour}}</span>
+                  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+              <div class="block-27">
+                  <ul class="pagination">
+                      {% if rooms.has_previous %}
+                      <li class="page-item  active"><a class="page-link"
+                              href="?page={{ rooms.previous_page_number }}">Prev</a>
+                      </li>
+                      {% endif %}
+                      {% for i in p.page_range %}
+                      {% if rooms.number == i %}
+                      <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                      {% else %}
+                      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+
+                      {% endif %}
+
+                      {% endfor %}
+                      {% if rooms.has_next %}
+                      <li class="page-item  active"><a class="page-link"
+                              href="?page={{ posts.next_page_number }}">Next</a>
+                      </li>
+                      {% endif %}
+                  </ul>
+              </div>
+          </div>
+      </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="sidebar-wrap">
+          <div class="side search-wrap animate-box">
+            <h3 class="sidebar-heading">Find your hotel</h3>
+            <form method="post" class="colorlib-form">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Check-in:</label>
+                    <div class="form-field">
+                      <i class="icon icon-calendar2"></i>
+                      <input type="date"  name='check_in' class="form-control" placeholder="Check-in date">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Check-out:</label>
+                    <div class="form-field">
+                      <i class="icon icon-calendar2"></i>
+                      <input type="date"  name='check_out' class="form-control" placeholder="Check-out date">
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="col-md-12">
+                  <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="side animate-box">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="sidebar-heading">Categories</h3>
+                <a href="/hotel/{{hotel.id}}/?cat=premium">Premium</a>
+                <br>
+                <a href="/hotel/{{hotel.id}}/?cat=middle">Middle</a>
+                <br> <a href="/hotel/{{hotel.id}}/?cat=cheap">Cheap</a><br>
+                <a href="/hotel/{{hotel.id}}/">All</a>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="colorlib-subscribe" style="background-image:url(images/ximg_bg_2.jpg.pagespeed.ic.kmgRidfqii.jpg)"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+        <h2>Sign Up for a Newsletter</h2>
+        <p>Sign up for our mailing list to get latest updates and offers.</p>
+        <form class="form-inline qbstp-header-subscribe">
+          <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+              <div class="form-group">
+                <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+{% load  static%}
+<html>
+
+<!-- Mirrored from preview.colorlib.com/theme/tour/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Oct 2022 05:57:53 GMT -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tour Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <meta property="og:title" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="{% static "css/styles.css" %}" />
+
+  <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+
+  <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+  <script
+    nonce="b9db991a-5042-4321-93b8-e09105d705b9">(function (w, d) { !function (a, e, t, r) { a.zarazData = a.zarazData || {}; a.zarazData.executed = []; a.zaraz = { deferred: [], listeners: [] }; a.zaraz.q = []; a.zaraz._f = function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } }; for (const e of ["track", "set", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.zaraz.init = () => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; n && (a.zarazData.t = e.getElementsByTagName("title")[0].text); a.zarazData.x = Math.random(); a.zarazData.w = a.screen.width; a.zarazData.h = a.screen.height; a.zarazData.j = a.innerHeight; a.zarazData.e = a.innerWidth; a.zarazData.l = a.location.href; a.zarazData.r = e.referrer; a.zarazData.k = a.screen.colorDepth; a.zarazData.n = e.characterSet; a.zarazData.o = (new Date).getTimezoneOffset(); a.zarazData.q = []; for (; a.zaraz.q.length;) { const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0; for (const e of [localStorage, sessionStorage]) Object.keys(e || {}).filter((a => a.startsWith("_zaraz_"))).forEach((t => { try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) } catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) } })); z.referrerPolicy = "origin"; z.src = "https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))); t.parentNode.insertBefore(z, t) };["complete", "interactive"].includes(e.readyState) ? zaraz.init() : a.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, 0, "script"); })(window, document);</script>
+</head>
+
+<body>
+  <div class="colorlib-loader"></div>
+  <div id="page">
+      {% include "navbar.html" %}
+
+{% block content %}
+  
+{% endblock content %}
+<div id="colorlib-subscribe" style="background-image:url({% static 'images/ximg_bg_2.jpg.pagespeed.ic.kmgRidfqii.jpg' %})"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+        <h2>Sign Up for a Newsletter</h2>
+        <p>Sign up for our mailing list to get latest updates and offers.</p>
+        <form class="form-inline qbstp-header-subscribe" method="GET" >
+          <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+              <div class="form-group">
+                <input type="text" name='subscribe' class="form-control" id="email" placeholder="Enter your email">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="colorlib-footer" role="contentinfo">
+      <div class="container">
+        <div class="row row-pb-md">
+          <div class="col-md-3 colorlib-widget">
+            <h4>Tour Agency</h4>
+            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci
+              architecto culpa amet.</p>
+            <p>
+            <ul class="colorlib-social-icons">
+              <li><a href="#"><i class="icon-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-facebook"></i></a></li>
+              <li><a href="#"><i class="icon-linkedin"></i></a></li>
+              <li><a href="#"><i class="icon-dribbble"></i></a></li>
+            </ul>
+            </p>
+          </div>
+          <div class="col-md-2 colorlib-widget">
+            <h4>Book Now</h4>
+            <p>
+            <ul class="colorlib-footer-links">
+              <li><a href="#">Flight</a></li>
+              <li><a href="#">Hotels</a></li>
+              <li><a href="#">Tour</a></li>
+              <li><a href="#">Car Rent</a></li>
+              <li><a href="#">Beach &amp; Resorts</a></li>
+            </ul>
+            </p>
+          </div>
+          <div class="col-md-2 colorlib-widget">
+            <h4>Top Deals</h4>
+            <p>
+            <ul class="colorlib-footer-links">
+              <li><a href="#">Edina Hotel</a></li>
+              <li><a href="#">Quality Suites</a></li>
+              <li><a href="#">The Hotel Zephyr</a></li>
+              <li><a href="#">Da Vinci Villa</a></li>
+              <li><a href="#">Hotel Epikk</a></li>
+            </ul>
+            </p>
+          </div>
+          <div class="col-md-2">
+            <h4>Blog Post</h4>
+            <ul class="colorlib-footer-links">
+              <li><a href="#">The Ultimate Packing List For Female Travelers</a></li>
+              <li><a href="#">How These 5 People Found The Path to Their Dream Trip</a></li>
+              <li><a href="#">A Definitive Guide to the Best Dining and Drinking Venues in the City</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-md-push-1">
+            <h4>Contact Information</h4>
+            <ul class="colorlib-footer-links">
+              <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+              <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+              <li><a
+                  href="https://preview.colorlib.com/cdn-cgi/l/email-protection#95fcfbf3fad5ecfae0e7e6fce1f0bbf6faf8"><span
+                    class="__cf_email__"
+                    data-cfemail="dbb2b5bdb49ba2b4aea9a8b2afbef5b8b4b6">[email&#160;protected]</span></a></li>
+              <li><a href="#">yoursite.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+  
+              Copyright &copy;
+              <script data-cfasync="false"
+                src="https://preview.colorlib.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+              <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com/"
+                target="_blank">Colorlib</a>
+              </span>
+              <span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a
+                  href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <div class="gototop js-top">
+      <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+    </div>
+  
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+  
+    <script
+      src="{% static 'js/jquery.easing.1.3.js+bootstrap.min.js+jquery.waypoints.min.js+jquery.flexslider-min.js.pagespeed.jc.AShyTfZP_e.js' %}"></script>
+    <script>eval(mod_pagespeed_ZEWHCfoF0e);</script>
+  
+    <script>eval(mod_pagespeed_hdQbQwYAqr);</script>
+  
+    <script>eval(mod_pagespeed_6yfsexhNMe);</script>
+  
+    <script>eval(mod_pagespeed_DtNIuLzaZ4);</script>
+  
+    <script
+      src="{% static 'js/owl.carousel.min.js+jquery.magnific-popup.min.js+magnific-popup-options.js.pagespeed.jc.ThpC59A1Ct.js' %}"></script>
+    <script>eval(mod_pagespeed_eX3fpbRiv0);</script>
+  
+    <script>eval(mod_pagespeed__VMKH9rSk8);</script>
+    <script>eval(mod_pagespeed_HBzOKL9bn0);</script>
+  
+    <script src="{% static 'js/bootstrap-datepicker.js+jquery.stellar.min.js+main.js.pagespeed.jc.KqmoBOcAyd.js' %}"></script>
+    <script>eval(mod_pagespeed_Zu3EBUYnYR);</script>
+  
+    <script>eval(mod_pagespeed_3qrJ8tDdwQ);</script>
+  
+    <script>eval(mod_pagespeed_TPdoXCxfsm);</script>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+      integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+      data-cf-beacon='{"rayId":"7553ec192b70d98d","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.8.1","si":100}'
+      crossorigin="anonymous"></script>
+      <script>
+            $('.c-btn').on('click',function(){
+
+                  let _cid=$(this).data('sid');
+                  
+                  
+                  $.ajax({
+                    url:'/hotel/',
+                    data: {
+                        _cid
+                    },
+
+
+                  })
+            })
+            </script>
+  </body>
+  
+  <!-- Mirrored from preview.colorlib.com/theme/tour/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Oct 2022 05:58:30 GMT -->
+  
+  </html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<style>
+  .button-87 {
+margin: 10px;
+padding: 15px 30px;
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;
+border-radius: 10px;
+display: block;
+border: 0px;
+font-weight: 700;
+box-shadow: 0px 0px 14px -7px #f09819;
+background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+cursor: pointer;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+}
+
+.button-87:hover {
+background-position: right center;
+/* change the direction of the change here */
+color: #fff;
+text-decoration: none;
+}
+
+.button-87:active {
+transform: scale(0.95);
+}
+</style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page Design Example</title>
+
+  <meta name="author" content="Codeconvey" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
+  <!--Only for demo purpose - no need to add.-->
+  <link rel="stylesheet" href="{%static 'css/demo.css'%}"" />
+    
+	    <link rel=" stylesheet" href="{% static 'css/astyle.css' %}">
+</head>
+<style>
+  .button-87 {
+    margin: 5px;
+    padding: 5px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #4fd4e8 0%, #F09819 51%, #FF512F 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-87:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .button-87:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<body>
+
+  <div class="ScriptTop">
+    <div class="rt-container">
+      <div class="col-rt-4" id="float-right">
+        
+        <!-- Ad Here -->
+        
+      </div>
+      <div class="col-rt-4" >
+        <ul>
+        <form method="post">
+          {% csrf_token %}
+          <!-- HTML !-->
+          <button class="button-87" role="button">Logout</button>
+          
+          </form>
+        </ul>
+      </div>
+      <div class="col-rt-2">
+        <ul>
+          <li><a href="/" title="Back to tutorial page">Back to website</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <header class="ScriptHeader">
+    <div class="rt-container">
+      <div class="col-rt-12">
+        <div class="rt-heading">
+          <h1> Profile Page Design Example</h1>
+          <p>A responsive profile page design.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="rt-container">
+      <div class="col-rt-12">
+        <div class="Scriptcontent">
+
+          <!-- Student Profile -->
+          <div class="student-profile py-4">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent text-center">
+                      <img class="profile_img" src="{{request.user.profile.avatar.url}}" alt="student dp">
+                      <h3>{{request.user}}</h3>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0"><strong class="pr-1">Profile ID:</strong>321000001</p>
+                      <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+                      <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th width="30%">Roll</th>
+                          <td width="2%">:</td>
+                          <td>125</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Academic Year </th>
+                          <td width="2%">:</td>
+                          <td>2020</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Gender</th>
+                          <td width="2%">:</td>
+                          <td>Male</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Religion</th>
+                          <td width="2%">:</td>
+                          <td>Group</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">blood</th>
+                          <td width="2%">:</td>
+                          <td>B+</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div style="height: 26px"></div>
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="cotainer">
+            <h3> Your hotel bookings</h3>
+            <div class="col-lg-8">
+              <div class="card shadow-sm" style="width:800px;">
+                <form action="" method="get">
+                  <div class="card-body pt-0">
+                    <table class="table table-bordered">
+                      {% for i in hotels %}
+                      <tr>
+                        <th width="50%"><a href="/hotel/{{i.hotels.id}}">{{i.hotels.name}}</a></th>
+                        <td width="30%">{{i.created_at}}</td>
+                        <td> <div style="height:10px"><a href="/profile/?hotel={{i.id}}">Remove</a></div>
+                        </td>
+                      </tr>
+                      <br>
+
+                      {% endfor %}
+                    </table>
+                </form>
+              </div>
+
+
+
+            </div>
+
+          </div>
+          <br>
+          <br>
+
+          <div class="cotainer">
+            <h3> Your Travel bookings</h3>
+            <div class="col-lg-8">
+              <div class="card shadow-sm" style="width:800px;">
+                <form action="" method="get">
+                  <div class="card-body pt-0">
+                    <table class="table table-bordered">
+                      {% for i in travels %}
+                      <tr>
+                        <th width="50%"><a href="/travel/{{i.travel.id}}">{{i.travel.title}}</a></th>
+                        <td width="30%">{{i.created_at}}</td>
+                        <td> <div style="height:10px"><a href="/profile/?travel={{i.id}}">Remove</a></div>
+                        </td>
+                      </tr>
+                      <br>
+
+                      {% endfor %}
+                    </table>
+                </form>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- partial -->
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- <script src="{% static 'js/jquery.min.js' %}"></script>
+
+  <script>
+    
+    let _id=document.querySelectorAll(".click")
+    let _cid=document.querySelector('#button')
+
+    _id.forEach(el=>{
+      alert('sa')
+      el.addEventListener("click",()=>{
+        _cid.value=el.dataset.hid;
+        alert(_cid)
+      })
+
+      })
+
+    </script> -->
+
+  <!-- Analytics -->
+
+</body>
+
+</html>

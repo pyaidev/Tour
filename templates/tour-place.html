@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+<aside id="colorlib-hero">
+  <div class="flexslider">
+    <ul class="slides">
+      <li style="background-image:url({{travel.image.url}})">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+              <div class="slider-text-inner text-center">
+                <h2>by colorlib.com</h2>
+                <h1>Tour Overview</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
+<div class="colorlib-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="wrap-division">
+              <div class="col-md-12 col-md-offset-0 heading2 animate-box">
+                <h2>Athens, Greece Tour</h2>
+              </div>
+              <div class="row">
+                {% for i in travel.travel_destination.all  %}
+                  
+                <div class="col-md-12 animate-box">
+                  <div class="room-wrap">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                        <div class="room-img"
+                          style="background-image:url({{i.images.first.image.url}})"></div>
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                        <div class="desc">
+                          <span class="day-tour">Day {{forloop.counter}}</span>
+                          <h2>{{i.title}}</h2>
+                          {{i.content|safe}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <div class="col-md-12 animate-box text-center">
+                  <button type="submit" class="btn btn-primary">Book Now</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}

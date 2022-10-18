@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sidebar %}
+{% load person %}
+{% block title %} Services {% endblock %}
+
+{% block content %}
+<aside id="colorlib-hero">
+<div class="flexslider">
+<ul class="slides">
+<li style="background-image:url({% static 'images/xcover-img-3.jpg.pagespeed.ic.sVsUWPCiGf.jpg' %})">
+<div class="overlay"></div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
+<div class="slider-text-inner text-center">
+<h2>by colorlib.com</h2>
+<h1>Our Services</h1>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</aside>
+<div id="colorlib-services">
+<div class="container">
+    {% post_services as post_services %}
+<div class="row">
+    {% for post in post_services %}
+<div class="col-md-3 animate-box text-center">
+<div class="services">
+<span class="icon">
+ <img src="{{ post.avatar.url }}" alt="{{ post.avatar.name }}">
+</span>
+<h3>{{ post.title }}</h3>
+<p>{{ post.content|safe }}</p>
+</div>
+</div>
+    {% endfor %}
+
+</div>
+</div>
+</div>
+<div id="colorlib-testimony" class="colorlib-light-grey">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+<h2>Our Satisfied Guests says</h2>
+<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2 animate-box">
+    {% person_post as person_post %}
+<div class="owl-carousel2">
+    {% for person in person_post %}
+<div class="item">
+<div class="testimony text-center">
+<span class="img-user" style="background-image:url({{ person.avatar.url }})"></span>
+<span class="user">{{ person.name }}</span>
+<small>{{ person.location }}</small>
+<blockquote>
+<p>" {{ person.content }}</p>
+</blockquote>
+</div>
+</div>
+    {% endfor %}
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

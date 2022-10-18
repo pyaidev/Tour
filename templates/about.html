@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load person %}
+{% block title %} About {% endblock %}
+
+{% block content %}
+<aside id="colorlib-hero">
+<div class="flexslider">
+<ul class="slides">
+<li style="background-image: url({% static 'images/cover-img-5.jpg' %});">
+<div class="overlay"></div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+<div class="slider-text-inner text-center">
+<h2>by colorlib.com</h2>
+<h1>About us</h1>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</aside>
+<div id="colorlib-about">
+<div class="container">
+<div class="row">
+<div class="about-flex">
+<div class="col-one-forth aside-stretch animate-box">
+<div class="row">
+<div class="col-md-12 about">
+<h2>About</h2>
+<ul>
+<li><a href="#">History</a></li>
+<li><a href="#">Staff</a></li>
+<li><a href="#">Connect with us</a></li>
+<li><a href="#">Faqs</a></li>
+<li><a href="#">Career</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-three-forth animate-box">
+    {% for post in posts %}
+<h2>{{ post.name }}</h2>
+<div class="row">
+<div class="col-md-12">
+{{ post.content|safe }}
+<div class="col-md-6">
+<img class="img-responsive" src="{{ post.image.url }}" alt="{{ post.image.name }}">
+</div>
+<!--<div class="col-md-6">-->
+<!--<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>-->
+<!--<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>-->
+<!--</div>-->
+</div>
+<!--<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>-->
+<!--<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.</p>-->
+<!--<p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>-->
+</div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="colorlib-testimony" class="colorlib-light-grey">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+<h2>Our Satisfied Guests says</h2>
+<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2 animate-box">
+    {% person_post as person_post %}
+<div class="owl-carousel2">
+    {% for person in person_post %}
+<div class="item">
+<div class="testimony text-center">
+<span class="img-user" style="background-image:url({{ person.avatar.url }})"></span>
+<span class="user">{{ person.name }}</span>
+<small>{{ person.location }}</small>
+<blockquote>
+<p>" {{ person.content }}</p>
+</blockquote>
+</div>
+</div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

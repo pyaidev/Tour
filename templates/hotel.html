@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<aside id="colorlib-hero">
+  <div class="flexslider">
+    <ul class="slides">
+      <li style="background-image:url({%static 'images/xcover-img-4.jpg.pagespeed.ic.lTgD5tE2QE.jpg'%})">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+              <div class="slider-text-inner text-center">
+                <h2>by colorlib.com</h2>
+                <h1>Hotel Overview</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
+<div class="colorlib-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="wrap-division">
+              <div class="col-md-12 col-md-offset-0 heading2 animate-box">
+                <h2>Hotel Edison</h2>
+              </div>
+              <div class="row">
+                {% for i in hotels %}
+                <div class="col-md-12 animate-box">
+                  <div class="room-wrap">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                        <a href="/hotel/{{i.id}}">
+                        <div class="room-img" style="background-image: url({{i.image.url}});"></div>
+                      </a></div>
+                      <div class="col-md-6 col-sm-6">
+                        <div class="desc">
+                          <h2>{{i.name}}</h2>
+                          <p class="price"><span>{{i.hotel_cat}}/</span> <small>{{i.stars}} stars</small></p>
+                          <p>{{i.description|safe}}</p>
+                          <p><a href="/hotel/{{i.id}}" class="btn btn-primary">Take Look</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="sidebar-wrap">
+          <div class="side search-wrap animate-box">
+            <h3 class="sidebar-heading">Find your hotel</h3>
+            <form method="post" class="colorlib-form">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Check-in:</label>
+                    <div class="form-field">
+                      <i class="icon icon-calendar2"></i>
+                      <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Check-out:</label>
+                    <div class="form-field">
+                      <i class="icon icon-calendar2"></i>
+                      <input type="text" id="date" class="form-control date" placeholder="Check-out date">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="guests">Guest</label>
+                    <div class="form-field">
+                      <i class="icon icon-arrow-down3"></i>
+                      <select name="people" id="people" class="form-control">
+                        <option value="#">1</option>
+                        <option value="#">2</option>
+                        <option value="#">3</option>
+                        <option value="#">4</option>
+                        <option value="#">5+</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="side animate-box">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="sidebar-heading">Price Range</h3>
+                <form method="post" class="colorlib-form-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="guests">Price from:</label>
+                        <div class="form-field">
+                          <i class="icon icon-arrow-down3"></i>
+                          <select name="people" id="people" class="form-control">
+                            <option value="#">1</option>
+                            <option value="#">200</option>
+                            <option value="#">300</option>
+                            <option value="#">400</option>
+                            <option value="#">1000</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="guests">Price to:</label>
+                        <div class="form-field">
+                          <i class="icon icon-arrow-down3"></i>
+                          <select name="people" id="people" class="form-control">
+                            <option value="#">2000</option>
+                            <option value="#">4000</option>
+                            <option value="#">6000</option>
+                            <option value="#">8000</option>
+                            <option value="#">10000</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <form action='' method="POST">
+            {% csrf_token %}
+            <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Review Rating</h3>
+                  <div class="form-check data">
+                    <input type="checkbox" {% if '5' in stars %} checked='true' {% endif %}
+                       name='stars' class="form-check-input c-btn" value=5>
+                    <label class="form-check-label" for="exampleCheck1">
+                      <p class="rate"><span>⭐️⭐️⭐️⭐️⭐️</i></span></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" {% if '4' in stars %} checked='true' {% endif %} name='stars' class="form-check-input c-btn" value=4>
+                    <label class="form-check-label" for="exampleCheck1">
+                      <p class="rate"><span>⭐️⭐️⭐️⭐️</i></span></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" {% if '3' in stars %} checked='true' {% endif %} name='stars' class="form-check-input c-btn" value=3>
+                    <label class="form-check-label" for="exampleCheck1">
+                      <p class="rate"><span>⭐️⭐️⭐️</i></span></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" {% if '2' in stars %} checked='true' {% endif %} name='stars' class="form-check-input c-btn" value=2>
+                    <label class="form-check-label" for="exampleCheck1">
+                      <p class="rate"><span>⭐️⭐️</i></span></p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" {% if '1' in stars %} checked='true' {% endif %} name='stars' class="form-check-input c-btn" value=1>
+                    <label class="form-check-label" for="exampleCheck1">
+                      <p class="rate"><span>⭐️</i></span></p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Categories</h3>
+
+                  {% for i in cats %}
+                  <div class="form-check">
+                    <input type="checkbox" name='cats' {% if i.title in hotel_cats_ %} checked='true' {% endif %} class="form-check-input" value={{i.title}} id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">
+                      <h4 class="place">{{i.title}}</h4>
+                    </label>
+                  </div>
+
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Location</h3>
+
+                  {% for i in tours %}
+                  <div class="form-check">
+                    <input type="checkbox" name='locations' {% if i.title in locations %} checked='true' {% endif %} class="form-check-input" value={{i.title}} id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">
+                      <h4 class="place">{{i.title}}</h4>
+                    </label>
+                  </div>
+
+
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            <button class="btn-group c-btn" type="submit">Filter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
